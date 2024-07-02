@@ -1,14 +1,14 @@
 ﻿using BlogFusion.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogFusion.Data
 {
-    public class BlogFusionContext : DbContext
+    public class BlogFusionContext : IdentityDbContext<IdentityUser>
     {
         public BlogFusionContext(DbContextOptions<BlogFusionContext> options)
             : base(options) { }
-
-        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

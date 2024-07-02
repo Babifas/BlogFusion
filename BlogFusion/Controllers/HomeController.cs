@@ -1,9 +1,11 @@
 using BlogFusion.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace BlogFusion.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,7 +19,7 @@ namespace BlogFusion.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles ="Admin")]
         public IActionResult Privacy()
         {
             return View();
